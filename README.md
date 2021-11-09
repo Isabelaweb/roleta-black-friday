@@ -323,8 +323,69 @@ interface itemProps {
     coupon: string
 }
 ```
-### resultado atual
+
+e no arquivo `src\components\Wheel.vue`
+substituir para 
+```vue
+<template>
+  <div>
+    <h1>ROLETA BLACK FRIDAY</h1>
+    <h2>Gire para receber um dos benefícios</h2>
+
+    <VueWinwheel :segments="options" />
+  </div>
+</template>
+
+<script>
+import VueWinwheel from 'vue-winwheel/vue-winwheel.vue';
+// https://gist.github.com/Isabelaweb/33fbfbb90b7d06a81987d6cf846dc7f1
+export default {
+  components: {
+    VueWinwheel,
+  },
+  data() {
+    return {
+      options: [
+        {
+          textFillStyle: '#fff',
+          fillStyle: '#F79110',
+          text: 'Brinde Supresa',
+          coupon: 'brinde',
+        },
+        {
+          textFillStyle: '#fff',
+          fillStyle: '#3A3A3A',
+          text: '5% de\nDesconto a Prazo',
+          coupon: 'prazo5',
+        },
+        {
+          textFillStyle: '#fff',
+          fillStyle: '#F79110',
+          text: 'Frete Grátis',
+          coupon: 'clientefrete',
+        },
+        {
+          textFillStyle: '#fff',
+          fillStyle: '#3A3A3A',
+          text: '3% de\nDesconto a Vista',
+          coupon: 'avista3',
+        },
+      ],
+    };
+  },
+};
+</script>
+
+<style></style>
+
+```
+### Resultado atual
+#### Antes de rodar
+<img src="/assets/resultado-passo-1.png"/>
+#### Após rodar
+<img src="/assets/resultado-passo-2.png"/>
 
 ### Estado atual
 - [x] quando o cupom sai e clicar no botão é copiado para area de transferencia
-- [ ] fee
+- [ ] adicionar feedback após copiar o cupom
+- [ ] melhorar visual
